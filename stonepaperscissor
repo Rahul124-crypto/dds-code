@@ -1,0 +1,17 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+
+int main() {
+    char *choices[] = {"Stone", "Paper", "Scissor"};
+    int user, comp;
+    srand(time(0));
+    printf("0:Stone 1:Paper 2:Scissor\nYour choice: ");
+    scanf("%d", &user);
+    comp = rand() % 3;
+    printf("You: %s | Computer: %s\n", choices[user], choices[comp]);
+    if (user == comp) printf("Draw\n");
+    else if ((user + 1) % 3 == comp) printf("Computer Wins\n");
+    else printf("You Win\n");
+    return 0;
+}
