@@ -1,0 +1,55 @@
+#include <iostream>
+using namespace std;
+
+#define size 5
+int stack[size];
+int top = -1;
+
+void push(int num) {
+    if (top == size - 1) {
+        cout << "Stack is overflow" << endl;
+    } else {
+        top++;
+        stack[top] = num;
+        cout << num << " inserted" << endl;
+    }
+}
+
+void pop() {
+    if (top == -1) {
+        cout << "Stack is empty, can't remove" << endl;
+    } else {
+        cout << stack[top] << " removed" << endl;
+        top--;
+    }
+}
+
+void display() {
+    if (top == -1) {
+        cout << "Stack is empty" << endl;
+    } else {
+        cout << "Stack contents: ";
+        for (int i = top; i >= 0; i--) {
+            cout << stack[i] << " ";
+        }
+        cout << endl;
+    }
+}
+
+int main() {
+    push(10);
+    push(30);
+    push(40);
+    push(50);
+    push(60);  // stack full yahan tak
+    push(70);  // overflow hoga yeh
+
+    display();
+
+    pop();
+    pop();
+
+    display();
+
+    return 0;
+}
